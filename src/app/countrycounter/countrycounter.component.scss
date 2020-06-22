@@ -4,16 +4,18 @@ td,
 th {
     border: 2px solid black;
     font-family:to-upper-case;
-   overflow-wrap: normal;
+}
+table{
+    table-layout: auto;
 }
 td{
     padding-top: 5px;
     color: red;
-
 }
 p-table {
     margin-left: 150px;
 }
+
 .container {
     align-items: center;
     text-align: center;
@@ -30,11 +32,9 @@ p-table {
         font-size: 22px;
     }
 }
-td{
-    overflow: auto;
-}
+
 .form__field { 
-      position: absolute;
+      position: relative;
       top: 0;
       display: block;
       transition: 0.2s;
