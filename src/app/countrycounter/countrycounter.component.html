@@ -1,0 +1,48 @@
+<nav class="navbar sticky-top navbar-dark bg-dark">
+    <!-- Navbar content -->
+
+    <nav class="nav navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 10px;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/worldcounter">World Counter</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/countrycounter">County Based Counter</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</nav>
+
+<p-table #dt [columns]="cols" [value]="countryStat" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}  entries  ">
+    <ng-template pTemplate="caption">
+        <div style="text-align: left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText size="50" placeholder="Search Country"
+                (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto" class="form__field">
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

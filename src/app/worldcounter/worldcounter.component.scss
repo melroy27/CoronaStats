@@ -1,0 +1,29 @@
+table,
+tr,
+td,
+th {
+    border: 1px solid black;
+    font-family:to-upper-case;
+}
+td{
+    padding-top: 5px;
+}
+p-table {
+    margin-left: 150px;
+}
+.container {
+    align-items: center;
+    text-align: center;
+    margin-top: 45px;
+}
+
+@media screen and (max-width: 500px) {
+    div.table {
+        font-size: 10px;
+    }
+}
+@media screen and (min-width: 600px) {
+    div.table {
+        font-size: 22px;
+    }
+}

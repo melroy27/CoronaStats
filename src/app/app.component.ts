@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { GetdataService } from 'src/app/getdata.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
