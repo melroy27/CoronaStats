@@ -2,7 +2,14 @@ table,
 tr,
 td,
 th {
-    border: 1px solid black;
+    border: 2px solid black;
+    font-family:to-upper-case;
+   overflow-wrap: normal;
+}
+td{
+    padding-top: 5px;
+    color: red;
+
 }
 p-table {
     margin-left: 150px;
@@ -12,9 +19,19 @@ p-table {
     text-align: center;
     margin-top: 45px;
 }
-th{
-    font-family: cursive;
-    transform: to-upper-case;
+
+@media screen and (max-width: 500px) {
+    div.table {
+        font-size: 10px;
+    }
+}
+@media screen and (min-width: 600px) {
+    div.table {
+        font-size: 22px;
+    }
+}
+td{
+    overflow: auto;
 }
 .form__field { 
       position: absolute;

@@ -4,10 +4,12 @@ td,
 th {
     border: 2px solid black;
     font-family:to-upper-case;
+   overflow-wrap: normal;
 }
 td{
     padding-top: 5px;
     color: red;
+
 }
 p-table {
     margin-left: 150px;

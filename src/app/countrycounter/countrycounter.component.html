@@ -25,10 +25,10 @@
 <p-table #dt [columns]="cols" [value]="countryStat" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}  entries  ">
     <ng-template pTemplate="caption">
-        <div style="text-align: left">
-            <i class="pi pi-search"></i>
+        <div class="search">
             <input type="text" pInputText size="50" placeholder="Search Country"
-                (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto" class="form__field">
+                (input)="dt.filterGlobal($event.target.value, 'contains')" style="text-align: center;width:300px;" class="form__field">
+                <br><br>
         </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
