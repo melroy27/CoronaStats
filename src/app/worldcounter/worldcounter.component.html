@@ -39,7 +39,7 @@
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body">
-                    <tr>
+                    <tr *ngIf="worldStat">
                         <td>{{worldStat.active_cases}}</td>
                         <td>{{worldStat.new_cases}}</td>
                         <td>{{worldStat.new_deaths}}</td>

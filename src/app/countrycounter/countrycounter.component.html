@@ -46,3 +46,33 @@
         </tr>
     </ng-template>
 </p-table>
+<h1>
+    <div class="table">
+        <div class="p-grid p-justify-between">
+            <div class="p-col-offset-6 p-md-9 p-lg-12">
+                <p-table [value]="data">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>active Cases</th>
+                            <th>Death Per min</th>
+                            <th>new cases today</th>
+                            <th>new deaths today</th>
+                            <th>recovered</th>
+                            <th>total tests per min</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body">
+                        <tr *ngIf="oneCountry">
+                            <td>{{oneCountry.latest_stat_by_country[0].active_cases}}</td>
+                            <td>{{oneCountry.latest_stat_by_country[0].deaths_per1m}}</td>
+                            <td>{{oneCountry.latest_stat_by_country[0].new_cases}}</td>
+                            <td>{{oneCountry.latest_stat_by_country[0].new_deaths}}</td>
+                            <td>{{oneCountry.latest_stat_by_country[0].total_recovered}}</td>
+                            <td>{{oneCountry.latest_stat_by_country[0].total_tests_per1m}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</h1>

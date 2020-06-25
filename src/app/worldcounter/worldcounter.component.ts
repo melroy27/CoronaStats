@@ -7,16 +7,14 @@ import { GetdataService } from 'src/app/getdata.service';
 })
 export class WorldcounterComponent implements OnInit {
   worldStat: any;
-  colls: any[];
+  colls: any;
   constructor(private getService: GetdataService) { }
 
   ngOnInit() {
     this.getService.getWorldCount().subscribe((res) => {
       this.worldStat = res;
       console.log('WORLD', this.worldStat);
+      this.colls = [{}];
     });
-    this.colls = [{ field: 'active_cases' }];
   }
-
-
 }

@@ -11,6 +11,8 @@ export class CountrycounterComponent implements OnInit {
   countryStat: any;
   first = 0;
   rows = 10;
+  oneCountry: any;
+  data: any[];
   constructor(private getService: GetdataService) { }
 
   ngOnInit() {
@@ -18,6 +20,13 @@ export class CountrycounterComponent implements OnInit {
       this.countryStat = res.countries_stat;
       console.log('COUNTRY', this.countryStat);
     });
+
+    this.getService.getOfOneCountry().subscribe((res: any) => {
+      this.oneCountry = res;
+      console.log('ONE', this.oneCountry.latest_stat_by_country[0]);
+      this.data = [{}]
+    });
+
     this.cols = [
       { field: 'country_name', header: 'country' },
       { field: 'deaths', header: 'deaths' },
