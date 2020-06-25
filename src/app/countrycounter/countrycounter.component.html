@@ -27,8 +27,9 @@
     <ng-template pTemplate="caption">
         <div class="search">
             <input type="text" pInputText size="50" placeholder="Search Country"
-                (input)="dt.filterGlobal($event.target.value, 'contains')" style="text-align: center;width:300px;" class="form__field">
-                <br><br>
+                (input)="dt.filterGlobal($event.target.value, 'contains')" style="text-align: center;width:300px;"
+                class="form__field">
+            <br><br>
         </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
@@ -47,32 +48,31 @@
     </ng-template>
 </p-table>
 <h1>This data is of india only...and not of the states which are inside that!!</h1>
-    <div class="table">
-        <div class="p-grid p-justify-between">
-            <div class="p-col-offset-6 p-md-9 p-lg-12">
-                <p-table [value]="data">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>active Cases</th>
-                            <th>Death Per min</th>
-                            <th>new cases today</th>
-                            <th>new deaths today</th>
-                            <th>recovered</th>
-                            <th>total tests per min</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body">
-                        <tr *ngIf="oneCountry">
-                            <td>{{oneCountry.latest_stat_by_country[0].active_cases}}</td>
-                            <td>{{oneCountry.latest_stat_by_country[0].deaths_per1m}}</td>
-                            <td>{{oneCountry.latest_stat_by_country[0].new_cases}}</td>
-                            <td>{{oneCountry.latest_stat_by_country[0].new_deaths}}</td>
-                            <td>{{oneCountry.latest_stat_by_country[0].total_recovered}}</td>
-                            <td>{{oneCountry.latest_stat_by_country[0].total_tests_per1m}}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
+<div class="table">
+    <div class="p-grid p-justify-between">
+        <div class="p-col-offset-6 p-md-9 p-lg-12">
+            <p-table [value]="data">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>active Cases</th>
+                        <th>Death Per min</th>
+                        <th>new cases today</th>
+                        <th>new deaths today</th>
+                        <th>recovered</th>
+                        <th>total tests per min</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body">
+                    <tr *ngIf="oneCountry">
+                        <td>{{oneCountry.latest_stat_by_country[0].active_cases}}</td>
+                        <td>{{oneCountry.latest_stat_by_country[0].deaths_per1m}}</td>
+                        <td>{{oneCountry.latest_stat_by_country[0].new_cases}}</td>
+                        <td>{{oneCountry.latest_stat_by_country[0].new_deaths}}</td>
+                        <td>{{oneCountry.latest_stat_by_country[0].total_recovered}}</td>
+                        <td>{{oneCountry.latest_stat_by_country[0].total_tests_per1m}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
     </div>
-</h1>
+</div>
