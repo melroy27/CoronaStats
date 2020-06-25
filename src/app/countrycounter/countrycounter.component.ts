@@ -24,7 +24,7 @@ export class CountrycounterComponent implements OnInit {
     this.getService.getOfOneCountry().subscribe((res: any) => {
       this.oneCountry = res;
       console.log('ONE', this.oneCountry.latest_stat_by_country[0]);
-      this.data = [{}]
+      this.data = [{}];
     });
 
     this.cols = [
