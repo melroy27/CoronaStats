@@ -17,13 +17,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" routerLink="/countrycounter">County Based Counter</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/mylist">Show My List</a>
+                </li>
             </ul>
         </div>
     </nav>
 </nav>
 
-<p-table #dt [columns]="cols" [value]="countryStat" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}  entries  ">
+<p-table #dt [columns]="cols" [value]="countryStat" [paginator]="true" [rows]="10" [(selection)]="selectedValues"
+    [rowHover]="true" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}  entries ">
     <ng-template pTemplate="caption">
         <div class="search">
             <input type="text" pInputText size="50" placeholder="Search Country"
@@ -34,27 +38,50 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
+            <th style="width: 3em">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
             <th *ngFor="let col of columns">
                 {{col.header}}
+            </th>
+            <th>
+                Actions
             </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
+        <tr class="ui-selectable-row">
+            <td>
+                <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}
             </td>
+            <td style="text-align: center;font-size: 1.5em">
+                <button type="button" (click)="confirm1(rowData)" pButton icon="pi pi-check"></button>
+            </td>
         </tr>
     </ng-template>
+    <ng-template pTemplate="summary">
+        <ul>
+            <li *ngFor="let country of selectedValues" style="text-align: left">
+                You have Selected :{{country.country_name}}
+            </li>
+        </ul>
+    </ng-template>
 </p-table>
-<h1>This data is of india only...and not of the states which are inside that!!</h1>
+
+
+<h1 style="text-align: center;margin-top: 30px;">Sample Data</h1>
 <div class="table">
     <div class="p-grid p-justify-between">
         <div class="p-col-offset-6 p-md-9 p-lg-12">
+
             <p-table [value]="data">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>active Cases</th>
+
+                        <th>Country</th>
                         <th>Death Per min</th>
                         <th>new cases today</th>
                         <th>new deaths today</th>
@@ -62,16 +89,59 @@
                         <th>total tests per min</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body">
-                    <tr *ngIf="oneCountry">
-                        <td>{{oneCountry.latest_stat_by_country[0].active_cases}}</td>
-                        <td>{{oneCountry.latest_stat_by_country[0].deaths_per1m}}</td>
-                        <td>{{oneCountry.latest_stat_by_country[0].new_cases}}</td>
-                        <td>{{oneCountry.latest_stat_by_country[0].new_deaths}}</td>
-                        <td>{{oneCountry.latest_stat_by_country[0].total_recovered}}</td>
-                        <td>{{oneCountry.latest_stat_by_country[0].total_tests_per1m}}</td>
+
+                <ng-template pTemplate="body" let-rowData>
+                    <tr class="ui-selectable-row">
+
+                        <td>India</td>
+                        <td>150</td>
+                        <td>185</td>
+                        <td>2</td>
+                        <td>85</td>
+                        <td>1095</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>USA</td>
+                        <td>150</td>
+                        <td>185</td>
+                        <td>2</td>
+                        <td>85</td>
+                        <td>1095</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Canada</td>
+                        <td>150</td>
+                        <td>185</td>
+                        <td>2</td>
+                        <td>85</td>
+                        <td>1095</td>
+
+                    </tr>
+                    <tr>
+                        <td>Kuwait</td>
+                        <td>150</td>
+                        <td>185</td>
+                        <td>2</td>
+                        <td>85</td>
+                        <td>1095</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Australia</td>
+                        <td>150</td>
+                        <td>185</td>
+                        <td>2</td>
+                        <td>85</td>
+                        <td>1095</td>
+
                     </tr>
                 </ng-template>
+                <!-- Selected Cities: <span *ngFor="let city of selectedValues" style="margin-right:10px">{{city}}</span> -->
             </p-table>
         </div>
     </div>
