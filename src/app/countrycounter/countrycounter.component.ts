@@ -20,7 +20,8 @@ export class CountrycounterComponent implements OnInit {
   selectedValues: any[];
   msgs: Message[] = [];
   country: string;
-
+  c1 = [];
+  c2 = [];
   // tslint:disable-next-line: max-line-length
   constructor(private getService: GetdataService, private sharingData: SharingdataService) { }
 
@@ -41,10 +42,10 @@ export class CountrycounterComponent implements OnInit {
     this.country = selectedItem.country_name;
 
     console.log('Country', this.country);
-
-    //
-
-    this.sharingData.updateData(this.country);
+    this.c1.push(this.country);
+    this.c2 = this.c1;
+    console.log('Array', this.c2);
+    this.sharingData.updateData(this.c2);
   }
 
   ngOnInit() {

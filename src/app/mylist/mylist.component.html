@@ -28,12 +28,15 @@
     <table style="width:50%">
         <tr>
             <th>Country</th>
-            <!-- <th>Actions</th> -->
+            <th>Actions</th>
         </tr>
         <tbody>
-            <tr ng-repeat="country in c1">
+            <tr *ngFor="let pro of country ">
                 <td>
-                    {{country}}
+                   {{pro}}
+                </td>
+                <td>
+                    <button id="remove" (click)="deleteRow(pro)">DELETE ROW</button>
                 </td>
             </tr>
         </tbody>
